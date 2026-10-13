@@ -1,4 +1,6 @@
 import networkx as nx
+from networkx import edges
+
 
 # Check readme.md for details on each sub-task
 
@@ -9,7 +11,9 @@ def calculate_node_degrees(edges: list) -> dict:
     return dict(graph.degree())
 def find_shortest_path(edges: list, source: str, target: str) -> list:
     """Sub-task 2: Find the shortest path between source and target nodes."""
-    pass
+    G = nx.Graph()
+    G.add_edges_from(edges)
+    return nx.shortest_path(G, source=source, target=target)
 
 def count_connected_components(edges: list) -> int:
     """Sub-task 3: Count the number of connected components in an undirected graph."""
